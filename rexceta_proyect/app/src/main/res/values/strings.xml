@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">rexceta_proyect</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_activity_ab">ActivityAB</string>
+    <string name="opcion2">ajustes</string>
+    <string name="opcion3">iniciar sesion</string>
+    <string name="opcion4">opc4</string>
+
+</resources>
