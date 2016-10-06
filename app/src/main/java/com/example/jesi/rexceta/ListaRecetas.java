@@ -38,7 +38,7 @@ public class ListaRecetas extends AppCompatActivity {
 
             @Override
             protected String doInBackground(Void... params) {
-                String resultado = new httpServerConnection().connectToServer("http://www.mocky.io/v2/57eee3822600009324111202", 15000);
+                String resultado = new httpServerConnection().connectToServer("http://www.mocky.io/v2/57f5695d250000d61e13497e", 15000);
                 return resultado;
             }
 
@@ -69,12 +69,12 @@ public class ListaRecetas extends AppCompatActivity {
                 Item_Receta item_receta = new Item_Receta();
                 JSONObject objeto = lista.getJSONObject(i);
 
-                item_receta.setNombre(objeto.getString(""));
-                item_receta.setDescripcion(objeto.getString(""));
-                item_receta.setValoracion(objeto.getInt(""));
-                item_receta.setVideo(objeto.getString(""));
-                item_receta.setImagen(objeto.getString(""));
-                item_receta.setDificultad(objeto.getString(""));
+                item_receta.setNombre(objeto.getString("titulo"));
+                item_receta.setDescripcion(objeto.getString("descripcion"));
+                item_receta.setValoracion(objeto.getInt("Estrellas"));
+                //item_receta.setVideo(objeto.getString("video"));
+                //item_receta.setImagen(objeto.getString("Imagen"));
+                //item_receta.setDificultad(objeto.getString("dificultad"));
 
 
                 listarepos.add(item_receta);
@@ -86,14 +86,4 @@ public class ListaRecetas extends AppCompatActivity {
         }
     }
 }
-
-/////////
-
-
-
-
-
-
-
-        import com.example.jesi.certamen2.UIAdapter;
 

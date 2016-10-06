@@ -18,8 +18,9 @@ public class HomeActivity extends AppCompatActivity {
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, ListaRecetas.class);
+                Intent i = new Intent(HomeActivity.this, ListaRecetas.class);
                 startActivity(i);
             }
         });
+    }
 }
