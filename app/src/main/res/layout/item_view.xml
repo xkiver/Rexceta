@@ -32,33 +32,18 @@
         android:layout_marginTop="14dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         app:srcCompat="@mipmap/ic_launcher"
         android:layout_marginTop="11dp"
         android:id="@+id/imageView4"
         android:clickable="true"
         android:maxWidth="@android:dimen/notification_large_icon_width"
-        android:maxHeight="@android:dimen/notification_large_icon_height"
+        android:maxHeight="@dimen/activity_vertical_margin"
         android:layout_below="@+id/textView6"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/presence_video_online"
-        android:id="@+id/imageView5"
-        android:cropToPadding="true"
-        android:layout_marginRight="22dp"
-        android:layout_marginEnd="22dp"
-        android:scaleY="2"
-        android:scaleX="2"
-        android:minHeight="37dp"
-        android:minWidth="37dp"
-        android:layout_alignTop="@+id/ratingBar3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:cropToPadding="true" />
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -83,4 +68,33 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textStyle="normal|bold" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@android:drawable/presence_video_online"
+        android:id="@+id/imageView5"
+        android:cropToPadding="true"
+        android:layout_marginRight="55dp"
+        android:layout_marginEnd="55dp"
+        android:scaleY="2"
+        android:scaleX="2"
+        android:minHeight="37dp"
+        android:minWidth="37dp"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Ir a Receta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:id="@+id/button2"
+        android:textSize="12sp"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="28dp"
+        android:layout_marginEnd="28dp" />
 </RelativeLayout>

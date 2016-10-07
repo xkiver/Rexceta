@@ -1,4 +1,4 @@
-package com.example.jesi.rexceta;
+package cl.telematica.android.rexceta;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

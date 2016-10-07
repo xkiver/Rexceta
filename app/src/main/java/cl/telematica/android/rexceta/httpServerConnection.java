@@ -1,4 +1,4 @@
-package com.example.jesi.rexceta;
+package cl.telematica.android.rexceta;
 
 /**
  * Created by Jesi on 05-10-16.

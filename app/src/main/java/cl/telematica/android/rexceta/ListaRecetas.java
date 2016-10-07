@@ -1,4 +1,4 @@
-package com.example.jesi.rexceta;
+package cl.telematica.android.rexceta;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,7 +38,7 @@ public class ListaRecetas extends AppCompatActivity {
 
             @Override
             protected String doInBackground(Void... params) {
-                String resultado = new httpServerConnection().connectToServer("http://www.mocky.io/v2/57f5695d250000d61e13497e", 15000);
+                String resultado = new httpServerConnection().connectToServer("http://www.mocky.io/v2/57f82d031100005b22c5ab7e", 15000);
                 return resultado;
             }
 
@@ -72,8 +72,8 @@ public class ListaRecetas extends AppCompatActivity {
                 item_receta.setNombre(objeto.getString("titulo"));
                 item_receta.setDescripcion(objeto.getString("descripcion"));
                 item_receta.setValoracion(objeto.getInt("Estrellas"));
-                //item_receta.setVideo(objeto.getString("video"));
-                //item_receta.setImagen(objeto.getString("Imagen"));
+                item_receta.setVideo(objeto.getString("video"));
+                item_receta.setImagen(objeto.getString("Imagen"));
                 //item_receta.setDificultad(objeto.getString("dificultad"));
 
 
