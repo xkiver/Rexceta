@@ -3,14 +3,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cl.telematica.android.rexceta.MainActivity">
 
-    <TextView
+    tools:context="com.multimedios.proyecto.home.MainActivity">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/my_toolbar"/>
+
+    <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/horizontalScrollView"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp" >
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_below="@+id/my_toolbar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="204dp"
+                android:layout_height="153dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/camarones"
+                android:clickable="true" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="204dp"
+                android:layout_height="153dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ensalada"
+                android:clickable="true" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="204dp"
+                android:layout_height="153dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mexicana"
+                android:clickable="true" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Sugerencias"
+        android:id="@+id/textView_sugerencias"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold|italic"
+        android:textSize="36dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Filtros"
+        android:id="@+id/textView"
+        android:layout_below="@+id/horizontalScrollView"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold|italic"
+        android:textSize="36dp"
+        android:textAlignment="center" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_Categoria"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:entries="@array/Categorias"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="120dp">
+
+    </Spinner>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_Dificultad"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:entries="@array/Dificultad"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="120dp">
+
+    </Spinner>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_Tiempo"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:entries="@array/Tiempo"
+        android:gravity="center"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="70dp">
+
+    </Spinner>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver Recetas"
+        android:id="@+id/button_ver_recetas"
+        android:layout_below="@+id/spinner_Tiempo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+
 </RelativeLayout>
