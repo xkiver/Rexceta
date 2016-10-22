@@ -33,6 +33,24 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // TOOLBAR SEARCHVIEW ----------------------------------------------------------------------
+        my_toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(my_toolbar);
+
+        getSupportActionBar().setTitle(R.string.my_tb_title);
+        getSupportActionBar().setIcon(R.drawable.ic_toolbar);
+
+        Intent searchIntent = getIntent();
+        if(Intent.ACTION_SEARCH.equals(searchIntent.getAction()))
+        {
+            String query = searchIntent.getStringExtra(SearchManager.QUERY);
+            Toast.makeText(HomeActivity.this, "Buscando " + query, Toast.LENGTH_SHORT).show();
+            Intent i_search = new Intent(HomeActivity.this, ListaRecetas.class);
+            i_search.putExtra("search", query);
+            startActivity(i_search);
+        }
+        // TOOLBAR SEARCHVIEW ---------------------------------------------------------------------
+        // DECLARACION DE SPINNERS --------------------------------------------------------------
         categoria = (Spinner) findViewById(R.id.spinner_Categoria);
         tiempo_preparacion = (Spinner) findViewById(R.id.spinner_Tiempo);
         dificultad = (Spinner) findViewById(R.id.spinner_Dificultad);
@@ -89,13 +107,9 @@ public class HomeActivity extends AppCompatActivity {
                 txt_dificultad = "*";
             }
         });
+        // TERMINO DE SPINNERS --------------------------------------------------------------------
 
-        my_toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(my_toolbar);
-
-        getSupportActionBar().setTitle(R.string.my_tb_title);
-        getSupportActionBar().setIcon(R.drawable.ic_toolbar);
-
+        // BOTON FILTRAR -------------------------------------------------------------------------
         Button boton = (Button) findViewById(R.id.button);
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +121,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        // TERMINO BOTON FILTRAR ----------------------------------------------------------------
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
