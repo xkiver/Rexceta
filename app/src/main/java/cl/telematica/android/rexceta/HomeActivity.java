@@ -16,9 +16,16 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-public class HomeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class HomeActivity extends AppCompatActivity {
 
     Spinner categoria;
+    Spinner tiempo_preparacion;
+    Spinner dificultad;
+
+    String txt_categoria;
+    String txt_tiempo;
+    String txt_dificultad;
+
     Toolbar my_toolbar;
 
     @Override
@@ -27,11 +34,61 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_home);
 
         categoria = (Spinner) findViewById(R.id.spinner_Categoria);
+        tiempo_preparacion = (Spinner) findViewById(R.id.spinner_Tiempo);
+        dificultad = (Spinner) findViewById(R.id.spinner_Dificultad);
 
-        ArrayAdapter adapter =
-                ArrayAdapter.createFromResource(this, R.array.Categorias, android.R.layout.simple_spinner_item);
+        ArrayAdapter adapter1 =
+                ArrayAdapter.createFromResource(this, R.array.Categorias, android.R.layout.simple_spinner_dropdown_item);
 
-        categoria.setAdapter(adapter);
+        ArrayAdapter adapter2 =
+                ArrayAdapter.createFromResource(this, R.array.Tiempo, android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter adapter3 =
+                ArrayAdapter.createFromResource(this, R.array.Dificultad, android.R.layout.simple_spinner_dropdown_item);
+
+        categoria.setAdapter(adapter1);
+        tiempo_preparacion.setAdapter(adapter2);
+        dificultad.setAdapter(adapter3);
+
+        categoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Object item1 = parent.getItemAtPosition(position);
+                txt_categoria = item1.toString();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                txt_categoria = "*";
+            }
+        });
+
+        tiempo_preparacion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Object item2 = parent.getItemAtPosition(position);
+                txt_tiempo = item2.toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                txt_tiempo = "*";
+            }
+        });
+
+        dificultad.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Object item3 = parent.getItemAtPosition(position);
+                txt_dificultad = item3.toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                txt_dificultad = "*";
+            }
+        });
 
         my_toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(my_toolbar);
@@ -44,6 +101,9 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomeActivity.this, ListaRecetas.class);
+                i.putExtra("categoria", txt_categoria);
+                i.putExtra("dificultad", txt_dificultad);
+                i.putExtra("tiempo", txt_tiempo);
                 startActivity(i);
             }
         });
@@ -74,15 +134,6 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }
 
 //

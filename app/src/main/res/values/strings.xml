@@ -19,9 +19,9 @@
         <item>Master Chef</item>
     </string-array>
     <string-array name="Tiempo">
-        <item>menos de 10 minutos</item>
-        <item>entre 10 y 30 minutos</item>
-        <item>entre 30 minutos y 1 hora</item>
+        <item>menos de 10 min</item>
+        <item>entre 10 y 30 min</item>
+        <item>entre 30 y 60 min</item>
         <item>Mayor a 1 hora</item>
     </string-array>
 </resources>
