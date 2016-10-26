@@ -32,7 +32,7 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
     @Override
     public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean wasRestored) {
         if (!wasRestored) {
-            player.cueVideo("fhWaJi1Hsfo"); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
+            player.cueVideo("nYupiSI9_-8"); // Plays https://www.youtube.com/watch?v=nYupiSI9_-8
         }
     }
 

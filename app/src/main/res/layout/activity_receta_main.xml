@@ -35,47 +35,7 @@
             <com.google.android.youtube.player.YouTubePlayerView
                 android:id="@+id/youtube_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:id="@+id/imageView7"
-                android:layout_below="@+id/youtube_view"
-                android:layout_alignRight="@+id/textView5"
-                android:layout_alignEnd="@+id/textView5" />
-
-            <TextView
-                android:text="Cocinar con amigos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:id="@+id/textView5"
-                android:layout_below="@+id/textView4"
-                android:layout_alignLeft="@+id/textView4"
-                android:layout_alignStart="@+id/textView4" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_input_add"
-                android:id="@+id/imageView6"
-                android:layout_below="@+id/imageView7"
-                android:layout_centerHorizontal="true" />
-
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ratingBar"
-                android:scaleY="0.4"
-                android:scaleX="0.41"
-                android:transformPivotX="20dp"
-                android:transformPivotY="0dp"
-                android:layout_marginTop="24dp"
-                android:layout_below="@+id/textView9"
-                android:layout_toRightOf="@+id/textView10"
-                android:layout_toEndOf="@+id/textView10" />
+                android:layout_height="300dp"/>
 
             <TextView
                 android:text="Dificultad"
@@ -83,7 +43,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:id="@+id/textView4"
-                android:layout_below="@+id/youtube_player_view"
+                android:layout_below="@+id/youtube_view"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="Cocinar con amigos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:layout_below="@+id/textView4"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -94,7 +63,7 @@
                 android:id="@+id/textView6"
                 android:textSize="18sp"
                 android:textStyle="normal|bold"
-                android:layout_below="@+id/imageView6"
+                android:layout_below="@+id/textView5"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -142,6 +111,21 @@
                 android:layout_alignTop="@+id/ratingBar"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/ratingBar"
+                android:scaleY="0.4"
+                android:scaleX="0.41"
+                android:transformPivotX="20dp"
+                android:transformPivotY="0dp"
+                android:layout_marginTop="24dp"
+                android:layout_below="@+id/textView9"
+                android:layout_toRightOf="@+id/textView10"
+                android:layout_toEndOf="@+id/textView10" />
+
+
 
         </RelativeLayout>
 
