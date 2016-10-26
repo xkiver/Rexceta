@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">home</string>
+    <string name="app_name">Rexcde</string>
     <string name="menu_2">menu_2</string>
     <string name="menu_1">menu_1</string>
     <string name="my_tb_title">Rexceta</string>
@@ -24,4 +24,13 @@
         <item>entre 30 y 60 min</item>
         <item>Mayor a 1 hora</item>
     </string-array>
+
+
+        <string name="hello_world">Hello world!</string>
+        <string name="action_settings">Settings</string>
+        <string name="player_error">Error initializing YouTube player</string>
+        <string name="seek_to">Jump To</string>
+        <string name="seek_to_hint">Seconds</string>
+
+
 </resources>
