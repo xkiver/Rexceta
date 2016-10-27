@@ -2,15 +2,12 @@ package cl.telematica.android.rexceta;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.content.ClipData;
 import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -20,6 +17,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +51,7 @@ public class ListaRecetas extends AppCompatActivity {
 
             @Override
             protected String doInBackground(Void... params) {
-                String resultado = new httpServerConnection().connectToServer("http://www.mocky.io/v2/5812245b0f0000c1190babfd", 15000);
+                String resultado = new httpServerConnection().connectToServer("http://www.mocky.io/v2/58124dc80f0000ac1b0bac52", 15000);
                 return resultado;
             }
 
@@ -71,7 +69,7 @@ public class ListaRecetas extends AppCompatActivity {
                             Item_Receta rec = (Item_Receta) lista.get(position);
                             String json = rec.getlinkJS();
                             Intent i = new Intent(ListaRecetas.this, RecetaMain.class);
-                            i.putExtra("json", Uri.parse(json));
+                            i.putExtra("json", json);
                             startActivity(i);
                         }
                         @Override

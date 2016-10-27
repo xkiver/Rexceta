@@ -1,10 +1,14 @@
 package cl.telematica.android.rexceta;
 
+import android.content.ClipData;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -13,12 +17,22 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
 
 
 public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     private static final int RECOVERY_REQUEST = 1;
     private YouTubePlayerView youTubeView;
+    private String json;
+    public TextView mTitulo;
+    public TextView mPreparacion;
+   // public RatingBar mValorationView;
+   // public TextView mDescriptionView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +40,50 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
         setContentView(R.layout.activity_receta_main);
         youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         youTubeView.initialize(Config.YOUTUBE_API_KEY, this);
+        json = getIntent().getStringExtra("json");
+
+        mTitulo = (TextView) findViewById(R.id.textView2);
+        mPreparacion = (TextView) findViewById(R.id.textView9);
+
+
+        AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
+            @Override
+            protected void onPreExecute() {
+
+            }
+
+            @Override
+            protected String doInBackground(Void... params) {
+                String resultado = new httpServerConnection().connectToServer(json, 15000);
+                return resultado;
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+                Item_Receta itemReceta = new Item_Receta();
+                if (result != null) {
+                    System.out.println(result);
+                    try {
+                        JSONObject receta = new JSONObject(result);
+                        itemReceta.setNombre(receta.getString("nombre"));
+                        itemReceta.setDificultad(receta.getString("dificultad"));
+                        itemReceta.setAutor(receta.getString("autor"));
+                        itemReceta.setVideo(receta.getString("video"));
+                        itemReceta.setImagen(receta.getString("imagen"));
+                        itemReceta.setCategoria(receta.getString("categoria"));
+                        itemReceta.setDescripcion(receta.getString("descripcion"));
+                        itemReceta.setPreparacion(receta.getString("preparacion"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                mTitulo.setText(itemReceta.getNombre());
+                mPreparacion.setText(itemReceta.getPreparacion());
+            }
+        };
+
+        task.execute();
+
 
     }
 

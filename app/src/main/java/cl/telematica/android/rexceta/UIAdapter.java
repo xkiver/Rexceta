@@ -1,6 +1,5 @@
 package cl.telematica.android.rexceta;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -12,12 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.webkit.URLUtil;
 
 import java.io.InputStream;
 import java.util.List;
 
-import static android.webkit.URLUtil.isDataUrl;
 import static android.webkit.URLUtil.isValidUrl;
 
 
@@ -68,13 +65,6 @@ public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder>/* impl
         this.listener = listener;
     }
 
-/*    public void onClick(View view) {
-        //if(listener != null)
-
-        view.getContext().startActivity(new Intent(view.getContext(), RecetaMain.class));
-    }
-
-*/
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
