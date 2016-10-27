@@ -1,9 +1,11 @@
 package cl.telematica.android.rexceta;
 
+
 import android.app.SearchManager;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -16,7 +18,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements HorizontalListFragment.OnFragmentInteractionListener {
 
     Spinner categoria;
     Spinner tiempo_preparacion;
@@ -50,6 +52,16 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(i_search);
         }
         // TOOLBAR SEARCHVIEW ---------------------------------------------------------------------
+        // FRAGMENT COMUNICACION ----------------------------------------------------------------
+
+
+        HorizontalListFragment fragment = new HorizontalListFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, fragment).commit();
+
+
+        // FRAGMENT COMUNICACION ----------------------------------------------------------------
+
+
         // DECLARACION DE SPINNERS --------------------------------------------------------------
         categoria = (Spinner) findViewById(R.id.spinner_Categoria);
         tiempo_preparacion = (Spinner) findViewById(R.id.spinner_Tiempo);
@@ -149,6 +161,10 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }
 
 //

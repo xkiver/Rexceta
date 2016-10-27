@@ -4,53 +4,22 @@
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d5c8c7"
     tools:context="cl.telematica.android.rexceta.MainActivity">
 
     <include layout="@layout/toolbar"
         android:id="@+id/my_toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
+        android:id="@+id/fragment_container"
+        android:layout_below="@+id/textView_sugerencias"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-    <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/horizontalScrollView"
-        android:layout_below="@+id/my_toolbar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="66dp" >
+        <include layout="@layout/fragment_imagen_list"/>
 
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="horizontal"
-            android:layout_below="@+id/my_toolbar"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="204dp"
-                android:layout_height="153dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/camarones"
-                android:clickable="true" />
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="204dp"
-                android:layout_height="153dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ensalada"
-                android:clickable="true" />
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="204dp"
-                android:layout_height="153dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/mexicana"
-                android:clickable="true" />
-
-        </LinearLayout>
-    </HorizontalScrollView>
+    </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -70,23 +39,23 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Filtros"
         android:id="@+id/textView"
-        android:layout_below="@+id/horizontalScrollView"
-        android:layout_centerHorizontal="true"
         android:textStyle="bold|italic"
         android:textSize="36dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_below="@+id/fragment_container"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinner_Categoria"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:entries="@array/Categorias"
         android:gravity="center"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="120dp">
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/spinner_Dificultad"
+        android:layout_alignStart="@+id/spinner_Dificultad">
 
     </Spinner>
 
@@ -94,13 +63,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinner_Dificultad"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:entries="@array/Dificultad"
         android:gravity="center"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="120dp">
+        android:layout_below="@+id/spinner_Categoria"
+        android:layout_alignLeft="@+id/spinner_Tiempo"
+        android:layout_alignStart="@+id/spinner_Tiempo">
 
     </Spinner>
 
@@ -108,13 +75,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinner_Tiempo"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:entries="@array/Tiempo"
         android:gravity="center"
-        android:layout_marginTop="150dp"
-        android:layout_marginLeft="70dp">
+        android:layout_below="@+id/spinner_Dificultad"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button">
 
     </Spinner>
 
@@ -123,9 +88,9 @@
         android:layout_height="wrap_content"
         android:text="Ver Recetas"
         android:id="@+id/button"
-        android:layout_below="@+id/spinner_Tiempo"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginBottom="31dp" />
 
 </RelativeLayout>
 
