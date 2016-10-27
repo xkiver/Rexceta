@@ -35,7 +35,8 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
     public TextView mTitulo;
     public TextView mPreparacion;
     public TextView mIngredientes;
-   // public RatingBar mValorationView;
+    public RatingBar mValorationView;
+    public String video;
    // public TextView mDescriptionView;
 
     @Override
@@ -114,18 +115,19 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
                     builder.append(details + "\n");
                 }
                 mIngredientes.setText(builder);
+                video = itemReceta.getVideo();
+
             }
         };
 
         task.execute();
-
 
     }
 
     @Override
     public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean wasRestored) {
         if (!wasRestored) {
-            player.cueVideo("nYupiSI9_-8"); // Plays https://www.youtube.com/watch?v=nYupiSI9_-8
+            player.cueVideo(video); // Plays https://www.youtube.com/watch?v=nYupiSI9_-8
         }
     }
 

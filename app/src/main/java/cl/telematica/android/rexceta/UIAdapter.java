@@ -76,7 +76,7 @@ public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder>/* impl
             holder.mImageView.setImageResource(R.drawable.sinimagen);
         }
 
-        if(isValidUrl(recet.getVideo())){
+        if(!recet.getVideo().equals("null")){
             holder.mImageViewVid.setImageResource(R.drawable.camera);
         }else{
             holder.mImageViewVid.setImageResource(0);
