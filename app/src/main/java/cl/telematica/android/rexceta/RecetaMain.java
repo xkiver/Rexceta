@@ -4,7 +4,9 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -21,6 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -31,6 +34,7 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
     private String json;
     public TextView mTitulo;
     public TextView mPreparacion;
+    public TextView mIngredientes;
    // public RatingBar mValorationView;
    // public TextView mDescriptionView;
 
@@ -44,6 +48,7 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
 
         mTitulo = (TextView) findViewById(R.id.textView2);
         mPreparacion = (TextView) findViewById(R.id.textView9);
+        mIngredientes = (TextView) findViewById(R.id.textView7);
 
 
         AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
@@ -58,6 +63,7 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
                 return resultado;
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             protected void onPostExecute(String result) {
                 Item_Receta itemReceta = new Item_Receta();
@@ -73,12 +79,41 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
                         itemReceta.setCategoria(receta.getString("categoria"));
                         itemReceta.setDescripcion(receta.getString("descripcion"));
                         itemReceta.setPreparacion(receta.getString("preparacion"));
+
+
+                        JSONArray jsonIngr = receta.getJSONArray("ingredientes");
+
+                        JSONArray jsonEtiq = receta.getJSONArray("etiqueta");
+
+
+                        List<String> ingredientes = new ArrayList<String>();
+                        List<String> etiquetas = new ArrayList<String>();
+
+                        int numIngr = jsonIngr.length();
+                        int numEtiq = jsonEtiq.length();
+
+                        for(int i = 0; i < numIngr; i++) {
+                            ingredientes.add(jsonIngr.getString(i));
+                        }
+
+                        for(int f = 0; f < numEtiq; f++){
+                            etiquetas.add(jsonIngr.getString(f));
+                        }
+
+                        itemReceta.setIngredientes(ingredientes);
+                        itemReceta.setEtiquetas(etiquetas);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
                 mTitulo.setText(itemReceta.getNombre());
                 mPreparacion.setText(itemReceta.getPreparacion());
+                StringBuilder builder = new StringBuilder();
+                for (String details : itemReceta.getIngredientes()) {
+                    builder.append(details + "\n");
+                }
+                mIngredientes.setText(builder);
             }
         };
 

@@ -42,7 +42,7 @@ public class Item_Receta {
         return ingredientes;
     }
 
-    public void setIngredientes(List<String> nombre) {
+    public void setIngredientes(List<String> ingredientes) {
         this.ingredientes = ingredientes;
     }
 

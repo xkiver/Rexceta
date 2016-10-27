@@ -51,7 +51,7 @@ public class ListaRecetas extends AppCompatActivity {
 
             @Override
             protected String doInBackground(Void... params) {
-                String resultado = new httpServerConnection().connectToServer("http://www.mocky.io/v2/58124dc80f0000ac1b0bac52", 15000);
+                String resultado = new httpServerConnection().connectToServer("http://alumnos.inf.utfsm.cl/~nvalenzu/json/pizzas_filtro", 15000);
                 return resultado;
             }
 
@@ -98,11 +98,11 @@ public class ListaRecetas extends AppCompatActivity {
                 Item_Receta item_receta = new Item_Receta();
                 JSONObject objeto = lista.getJSONObject(i);
 
-                item_receta.setNombre(objeto.getString("titulo"));
+                item_receta.setNombre(objeto.getString("nombre"));
                 item_receta.setDescripcion(objeto.getString("descripcion"));
-                item_receta.setValoracion(objeto.getInt("Estrellas"));
+                item_receta.setValoracion(objeto.getInt("valoracion"));
                 item_receta.setVideo(objeto.getString("video"));
-                item_receta.setImagen(objeto.getString("Imagen"));
+                item_receta.setImagen(objeto.getString("imagen"));
                 item_receta.setLinkJS(objeto.getString("json"));
                 //item_receta.setDificultad(objeto.getString("dificultad"));
 
