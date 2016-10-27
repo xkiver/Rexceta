@@ -25,7 +25,7 @@ import static android.webkit.URLUtil.isValidUrl;
  * Created by Jesi on 05-10-16.
  */
 
-public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder> implements View.OnClickListener {
+public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder>/* implements View.OnClickListener*/ {
     private List<Item_Receta> mDataset;
     private View.OnClickListener listener;
 
@@ -60,7 +60,7 @@ public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder> implem
                                          int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view, parent, false);
-        v.setOnClickListener(this);
+      //  v.setOnClickListener(this);
         return new ViewHolder(v);
     }
 
@@ -68,14 +68,13 @@ public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder> implem
         this.listener = listener;
     }
 
-    public void onClick(View view) {
+/*    public void onClick(View view) {
         //if(listener != null)
+
         view.getContext().startActivity(new Intent(view.getContext(), RecetaMain.class));
     }
 
-    ////
-
-    ///
+*/
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {

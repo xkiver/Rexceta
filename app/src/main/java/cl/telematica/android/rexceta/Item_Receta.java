@@ -11,6 +11,7 @@ public class Item_Receta {
     private String video;
     private String imagen;
     private String dificultad;
+    private String json;
 
 
     public String getNombre() {
@@ -59,6 +60,14 @@ public class Item_Receta {
 
     public void setDificultad(String dificultad) {
         this.dificultad = dificultad;
+    }
+
+    public String getlinkJS(){
+        return json;
+    }
+
+    public void setLinkJS(String json) {
+        this.json = json;
     }
 
 }
