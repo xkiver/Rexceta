@@ -1,11 +1,14 @@
 package cl.telematica.android.rexceta;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.ClipData;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,6 +21,8 @@ public class ListaRecetas extends AppCompatActivity {
     private RecyclerView myRecyclerView;
     private RecyclerView.Adapter myadapter;
     private RecyclerView.LayoutManager mylayoutManager;
+
+
 
 
     @Override
