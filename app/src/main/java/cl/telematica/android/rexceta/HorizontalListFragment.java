@@ -44,7 +44,7 @@ public class HorizontalListFragment extends Fragment {
             @Override
             protected String doInBackground(Void... params) {
                 String resultado = new httpServerConnection().
-                        connectToServer("http://www.mocky.io/v2/57f82d031100005b22c5ab7e", 15000);
+                        connectToServer("http://alumnos.inf.utfsm.cl/~nvalenzu/json/pizzas_filtro", 15000);
                 return resultado;
             }
 
@@ -75,7 +75,7 @@ public class HorizontalListFragment extends Fragment {
             for (int i = 0; i < size; i++) {
                 item_recomendados item_reco = new item_recomendados();
                 JSONObject objeto = lista.getJSONObject(i);
-                item_reco.setImagen(objeto.getString("Imagen"));
+                item_reco.setImagen(objeto.getString("imagen"));
                 imagenes.add(item_reco);
             }
             return imagenes;
