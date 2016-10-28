@@ -3,6 +3,7 @@ package cl.telematica.android.rexceta;
 
 import android.app.SearchManager;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -85,6 +87,8 @@ public class HomeActivity extends AppCompatActivity implements HorizontalListFra
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Object item1 = parent.getItemAtPosition(position);
                 txt_categoria = item1.toString();
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+
 
             }
 
@@ -99,6 +103,8 @@ public class HomeActivity extends AppCompatActivity implements HorizontalListFra
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Object item2 = parent.getItemAtPosition(position);
                 txt_tiempo = item2.toString();
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+
             }
 
             @Override
@@ -112,6 +118,8 @@ public class HomeActivity extends AppCompatActivity implements HorizontalListFra
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Object item3 = parent.getItemAtPosition(position);
                 txt_dificultad = item3.toString();
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+
             }
 
             @Override
