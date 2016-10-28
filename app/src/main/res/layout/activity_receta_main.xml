@@ -121,7 +121,6 @@
                 android:id="@+id/ratingBar"
                 android:scaleY="0.4"
                 android:scaleX="0.4"
-                android:progressTint="@android:color/holo_red_dark"
                 android:transformPivotX="0dp"
                 android:transformPivotY="0dp"
                 android:maxHeight="65dip"
