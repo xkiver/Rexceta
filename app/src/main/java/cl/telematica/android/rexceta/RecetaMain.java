@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.RatingBar.OnRatingBarChangeListener;
+import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     private static final int RECOVERY_REQUEST = 1;
@@ -37,6 +40,7 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
     public TextView mIngredientes;
     public RatingBar mValorationView;
     public String video;
+    public TextView mDificultad;
    // public TextView mDescriptionView;
 
     @Override
@@ -50,6 +54,9 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
         mTitulo = (TextView) findViewById(R.id.textView2);
         mPreparacion = (TextView) findViewById(R.id.textView9);
         mIngredientes = (TextView) findViewById(R.id.textView7);
+        mDificultad = (TextView) findViewById(R.id.textView11);
+
+        addListenerOnRatingBar();
 
 
         AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
@@ -110,6 +117,7 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
                 }
                 mTitulo.setText(itemReceta.getNombre());
                 mPreparacion.setText(itemReceta.getPreparacion());
+                mDificultad.setText(itemReceta.getDificultad());
                 StringBuilder builder = new StringBuilder();
                 for (String details : itemReceta.getIngredientes()) {
                     builder.append(details + "\n");
@@ -122,6 +130,21 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
 
         task.execute();
 
+    }
+
+    private void addListenerOnRatingBar() {
+        mValorationView = (RatingBar) findViewById(R.id.ratingBar);
+        //if rating value is changed,
+        //display the current rating value in the result (textview) automatically
+        mValorationView.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+            public void onRatingChanged(RatingBar ratingBar, float rating,
+                                        boolean fromUser) {
+                Toast.makeText(RecetaMain.this, "Le asignaste" + String.valueOf(rating) + "estrellas a esta receta",
+                        Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
     }
 
     @Override
