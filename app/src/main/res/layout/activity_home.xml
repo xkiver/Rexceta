@@ -58,7 +58,9 @@
         android:layout_marginTop="31dp"
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/spinner_Dificultad"
-        android:layout_alignStart="@+id/spinner_Dificultad">
+        android:layout_alignStart="@+id/spinner_Dificultad"
+        android:popupBackground="#515757">
+
 
     </Spinner>
 
@@ -70,7 +72,8 @@
         android:gravity="center"
         android:layout_below="@+id/spinner_Categoria"
         android:layout_alignLeft="@+id/spinner_Tiempo"
-        android:layout_alignStart="@+id/spinner_Tiempo">
+        android:layout_alignStart="@+id/spinner_Tiempo"
+        android:popupBackground="#515757">
 
     </Spinner>
 
@@ -82,7 +85,8 @@
         android:gravity="center"
         android:layout_below="@+id/spinner_Dificultad"
         android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button">
+        android:layout_alignStart="@+id/button"
+        android:popupBackground="#515757">
 
     </Spinner>
 
