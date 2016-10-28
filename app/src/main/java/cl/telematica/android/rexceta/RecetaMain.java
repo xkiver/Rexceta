@@ -41,6 +41,7 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
     public RatingBar mValorationView;
     public String video;
     public TextView mDificultad;
+    public TextView mTiempo;
    // public TextView mDescriptionView;
 
     @Override
@@ -55,6 +56,7 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
         mPreparacion = (TextView) findViewById(R.id.textView9);
         mIngredientes = (TextView) findViewById(R.id.textView7);
         mDificultad = (TextView) findViewById(R.id.textView11);
+        mTiempo = (TextView) findViewById(R.id.textView18);
 
         addListenerOnRatingBar();
 
@@ -87,6 +89,7 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
                         itemReceta.setCategoria(receta.getString("categoria"));
                         itemReceta.setDescripcion(receta.getString("descripcion"));
                         itemReceta.setPreparacion(receta.getString("preparacion"));
+                        itemReceta.setTiempo(receta.getString("tiempo"));
 
 
                         JSONArray jsonIngr = receta.getJSONArray("ingredientes");
@@ -118,6 +121,7 @@ public class RecetaMain extends YouTubeBaseActivity implements YouTubePlayer.OnI
                 mTitulo.setText(itemReceta.getNombre());
                 mPreparacion.setText(itemReceta.getPreparacion());
                 mDificultad.setText(itemReceta.getDificultad());
+                mTiempo.setText(itemReceta.getTiempo());
                 StringBuilder builder = new StringBuilder();
                 for (String details : itemReceta.getIngredientes()) {
                     builder.append(details + "\n");
