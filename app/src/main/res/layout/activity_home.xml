@@ -9,17 +9,19 @@
 
     <include layout="@layout/toolbar"
         android:id="@+id/my_toolbar"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="153dp"
-        android:id="@+id/fragment_container"
-        android:layout_below="@+id/textView_sugerencias"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="153dp"
+            android:id="@+id/fragment_container"
+            android:layout_below="@+id/textView_sugerencias"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
-        <include layout="@layout/fragment_imagen_list"/>
-
-    </RelativeLayout>
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="153dp"
+                class="cl.telematica.android.rexceta.HorizontalListFragment"/>
+        </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"

@@ -3,6 +3,7 @@ package cl.telematica.android.rexceta;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import static android.webkit.URLUtil.isValidUrl;
 public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<HorizontalRecyclerViewAdapter.ViewHolder> {
 
     private List<item_recomendados> mDataset;
+    FragmentActivity activity;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -27,23 +29,23 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
 
 
 
+
         public ViewHolder(View v) {
             super(v);
 
-            mImageView = (ImageView) v.findViewById(R.id.imageView4);
-            mImageViewVid = (ImageView) v.findViewById(R.id.imageView5);
+            mImageView = (ImageView) v.findViewById(R.id.image_sugerencia);
         }
     }
 
-    public HorizontalRecyclerViewAdapter (List<item_recomendados> myDataset) {
+    public HorizontalRecyclerViewAdapter(List<item_recomendados> myDataset) {
         mDataset = myDataset;
+        //this.activity = activity;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent,
-                                         int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_imagen, parent, false);
         return new ViewHolder(v);
     }
 
