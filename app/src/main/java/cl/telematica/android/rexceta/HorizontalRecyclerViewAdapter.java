@@ -3,14 +3,13 @@ package cl.telematica.android.rexceta;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.TextView;
 
 import java.io.InputStream;
 import java.util.List;
@@ -18,57 +17,41 @@ import java.util.List;
 import static android.webkit.URLUtil.isValidUrl;
 
 
-/**
- * Created by Jesi on 05-10-16.
- */
+public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<HorizontalRecyclerViewAdapter.ViewHolder> {
 
-public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder>/* implements View.OnClickListener*/ {
-    private List<Item_Receta> mDataset;
-    private View.OnClickListener listener;
+    private List<item_recomendados> mDataset;
+    FragmentActivity activity;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTitleView;
-        public RatingBar mValorationView;
-        public TextView mDescriptionView;
+
         public ImageView mImageView;
         public ImageView mImageViewVid;
 
-        private View.OnClickListener listener;
 
 
 
         public ViewHolder(View v) {
             super(v);
 
-            mTitleView = (TextView) v.findViewById(R.id.textView6);
-            mValorationView = (RatingBar) v.findViewById(R.id.ratingBar3);
-            mDescriptionView = (TextView) v.findViewById(R.id.textView8);
-            mImageView = (ImageView) v.findViewById(R.id.imageView4);
-            mImageViewVid = (ImageView) v.findViewById(R.id.imageView5);
+            mImageView = (ImageView) v.findViewById(R.id.image_sugerencia);
         }
     }
 
-    public UIAdapter(List<Item_Receta> myDataset) {
+    public HorizontalRecyclerViewAdapter(List<item_recomendados> myDataset) {
         mDataset = myDataset;
+        //this.activity = activity;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent,
-                                         int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view, parent, false);
-      //  v.setOnClickListener(this);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_imagen, parent, false);
         return new ViewHolder(v);
     }
 
-    public void setOnClickListener(View.OnClickListener listener) {
-        this.listener = listener;
-    }
-
-
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        final Item_Receta recet = mDataset.get(position);
+        final item_recomendados recet = mDataset.get(position);
 
         if(isValidUrl(recet.getImagen())){
             new DownloadImageTask(holder.mImageView).execute(recet.getImagen());
@@ -76,19 +59,12 @@ public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder>/* impl
             holder.mImageView.setImageResource(R.drawable.sinimagen);
         }
 
-        if(!recet.getVideo().equals("null")){
-            holder.mImageViewVid.setImageResource(R.drawable.camera);
-        }else{
-            holder.mImageViewVid.setImageResource(0);
-        }
-        holder.mTitleView.setText(recet.getNombre());
-        holder.mValorationView.setRating(recet.getValoracion());
-        holder.mDescriptionView.setText(recet.getDescripcion());
 
 
     }
     @Override
     public int getItemCount() {
+
         return mDataset.size();
     }
 
@@ -119,4 +95,5 @@ public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder>/* impl
         }
 
     }
+
 }

@@ -8,7 +8,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.jesi.rexceta.ListaRecetas">
+    android:background="#515757"
+    tools:context="cl.telematica.android.rexceta.ListaRecetas">
+
+
 
     <TextView
         android:text="Resultados de la Búsqueda"
@@ -19,7 +22,9 @@
         android:layout_alignParentStart="true"
         android:id="@+id/textView"
         android:textStyle="normal|bold"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:fontFamily="sans-serif" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
